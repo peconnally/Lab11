@@ -58,42 +58,41 @@ assignments, assignments_byid = clean_assignments()
 submissions_students, submissions_assignments = clean_submissions()
 
 def main():
-    while True:
-        print(menu)
-        selection = input("Enter your selection: ")
+    print(menu)
+    selection = input("Enter your selection: ")
 
-        if selection == "1":
-            student = input("What is the student's name: ")
-            if student not in students.keys():
-                print("Student not found")
-                continue
-            else:
-                points = 0
-                for i in submissions_students[students[student]]:
-                    points += (float(assignments_byid[i[0]]) * (float(i[1])/100))
-                print(f"{int(points/10)}%\n")
+    if selection == "1":
+        student = input("What is the student's name: ")
+        if student not in students.keys():
+            print("Student not found")
+            continue
+        else:
+            points = 0
+            for i in submissions_students[students[student]]:
+                points += (float(assignments_byid[i[0]]) * (float(i[1])/100))
+            print(f"{int(points/10)}%\n")
 
-        elif selection == "2":
-            assign = input("What is the assignment name: ")
-            if assign not in assignments.keys():
-                print("Assignment not found")
-            else:
-                asl = submissions_assignments[assignments[assign][0]]
-                asl = [int(i) for i in asl]
-                print(f"Min: {min(asl)}%")
-                print(f"Avg: {sum(asl)//len(asl)}%")
-                print(f"Max: {max(asl)}%\n")
+    elif selection == "2":
+        assign = input("What is the assignment name: ")
+        if assign not in assignments.keys():
+            print("Assignment not found")
+        else:
+            asl = submissions_assignments[assignments[assign][0]]
+            asl = [int(i) for i in asl]
+            print(f"Min: {min(asl)}%")
+            print(f"Avg: {sum(asl)//len(asl)}%")
+            print(f"Max: {max(asl)}%\n")
 
-        elif selection == "3":
-            assign = input("What is the assignment name: ")
-            if assign not in assignments.keys():
-                print("Assignment not found")
-                print("")
-            else:
-                asl = submissions_assignments[assignments[assign][0]]
-                asl = [int(i) for i in asl]
-                plt.hist(asl, bins=[40, 50, 60, 70, 80, 90, 100])
-                plt.show()
+    elif selection == "3":
+        assign = input("What is the assignment name: ")
+        if assign not in assignments.keys():
+            print("Assignment not found")
+            print("")
+        else:
+            asl = submissions_assignments[assignments[assign][0]]
+            asl = [int(i) for i in asl]
+            plt.hist(asl, bins=[40, 50, 60, 70, 80, 90, 100])
+            plt.show()
 
 
 
