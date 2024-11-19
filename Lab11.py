@@ -65,7 +65,6 @@ def main():
         student = input("What is the student's name: ")
         if student not in students.keys():
             print("Student not found")
-            continue
         else:
             points = 0
             for i in submissions_students[students[student]]:
