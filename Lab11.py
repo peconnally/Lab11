@@ -52,7 +52,7 @@ def clean_submissions():
 
     return subs_dict, subs_id
 
-menu = "1. Student grade\n2. Assignment statistics\n3. Assignment graph"
+menu = "1. Student grade\n2. Assignment statistics\n3. Assignment graph\n"
 students = clean_students()
 assignments, assignments_byid = clean_assignments()
 submissions_students, submissions_assignments = clean_submissions()
@@ -60,7 +60,7 @@ submissions_students, submissions_assignments = clean_submissions()
 def main():
     while True:
         print(menu)
-        selection = input("\nEnter your selection: ")
+        selection = input("Enter your selection: ")
 
         if selection == "1":
             student = input("What is the student's name: ")
