@@ -69,7 +69,7 @@ def main():
             points = 0
             for i in submissions_students[students[student]]:
                 points += (float(assignments_byid[i[0]]) * (float(i[1])/100))
-            print(f"{int(points/10)}%\n")
+            print(f"{int(round(points/10,0))}%\n")
 
     elif selection == "2":
         assign = input("What is the assignment name: ")
